@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: next
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
+      imagePullSecrets:
+        - name: dockerhub-secret-web
+---
+# ⑤ WebサーバのPodへトラフィックを流すService
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3001
+  selector:
+    app: web
+
+---
+# ⑥ Serviceを公開するためのIngress
+# ↓ ingress controller
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: web
+                port:
+                  number: 3001

@@ -1,0 +1,6 @@
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- api.yaml
+- web.yaml

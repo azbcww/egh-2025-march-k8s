@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  template:
+    spec:
+      containers:
+        - name: api
+          image: strawhare/api@sha256:8abb46dc36205a9fa83cfed47f59ed2cf9978665e9c0f04ba4565ec4f5731879
