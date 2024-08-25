@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: api
-          image: strawhare/api@sha256:fa36a12d7d2fed9105c9e227e58353ce0022af342f545528044ae3dffa87839f
+          image: strawhare/api@sha256:43bdb9c0a4e134c5c8e8beb2acb08ac714a4b2bb24a97dc93fed3c75316a0819
