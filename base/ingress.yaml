@@ -4,6 +4,7 @@ metadata:
   name: ingress
   annotations:
     kubernetes.io/ingress.class: gce
+    backendconfig.cloud.google.com/default: "api-backendconfig"
 spec:
   rules:
     - http:

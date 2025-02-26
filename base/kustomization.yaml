@@ -2,3 +2,4 @@ resources:
 - api.yaml
 - web.yaml
 - ingress.yaml
+- backendconfig.yaml
