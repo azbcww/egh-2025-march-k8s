@@ -5,5 +5,5 @@ resources:
   - ../../base
 
 patchesStrategicMerge:
-  - api.yaml
-  - web.yaml
+  - ./api.yaml
+  - ./web.yaml
