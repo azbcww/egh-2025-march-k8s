@@ -13,4 +13,4 @@ spec:
     spec:
       containers:
         - name: web
-          image: azbcww/web@sha256:679eca0292610149a1c52aab216cdcd9defac4e720f688b36514bb71e0707efb
+          image: azbcww/web@sha256:cd25bb2a0cfddceb41419863585eb42c8c505711b1bcb88b58a3e50855d882c2
