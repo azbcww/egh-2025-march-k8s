@@ -39,18 +39,16 @@ spec:
     app: web
 
 ---
-# ingress controller
-# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: web
-  labels:
-    app: web
+  annotations:
+    kubernetes.io/ingress.class: gce
 spec:
-  ingressClassName: nginx
   rules:
-    - http:
+    - host: my-app.example.com
+      http:
         paths:
           - pathType: Prefix
             path: /
@@ -59,3 +57,4 @@ spec:
                 name: web
                 port:
                   number: 3001
+
