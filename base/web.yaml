@@ -23,7 +23,7 @@ spec:
       imagePullSecrets:
         - name: dockerhub-secret-web
 ---
-# ⑤ WebサーバのPodへトラフィックを流すService
+# WebサーバのPodへトラフィックを流すService
 apiVersion: v1
 kind: Service
 metadata:
@@ -39,8 +39,8 @@ spec:
     app: web
 
 ---
-# ⑥ Serviceを公開するためのIngress
-# ↓ ingress controller
+# Serviceを公開するためのIngress
+# ingress controller
 # kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

@@ -25,7 +25,7 @@ spec:
 
 ---
 
-# ④ APIサーバのPodへトラフィックを流すService
+# APIサーバのPodへトラフィックを流すService
 apiVersion: v1
 kind: Service
 metadata:
