@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - ../../base
 
-patches:
-  - path: api.yaml
-  - path: web.yaml
+patchesStrategicMerge:
+  - api.yaml
+  - web.yaml
