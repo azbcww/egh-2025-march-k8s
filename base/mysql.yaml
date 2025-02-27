@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
+  name: db
 spec:
-  serviceName: mysql
+  serviceName: db
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: db
   template:
     metadata:
       labels:
-        app: mysql
+        app: db
     spec:
       containers:
         - name: mysql
@@ -52,10 +52,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: db
 spec:
   selector:
-    app: mysql
+    app: db
   ports:
     - protocol: TCP
       port: 3306
